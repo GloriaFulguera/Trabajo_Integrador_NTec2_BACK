@@ -1,0 +1,55 @@
+
+# Archivos temporales de compilación
+bin/
+obj/
+out/
+
+# Configuraciones de Visual Studio
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Configuración global del IDE
+.idea/
+.vs/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Entornos de ejecución
+*.db
+*.db-shm
+*.db-wal
+
+# Paquetes y dependencias
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+*.nuspec
+
+# Archivos de prueba y cobertura
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.vsmdi
+
+# Variables de entorno
+.env
+
+# Archivos compilados
+*.dll
+*.exe
+*.app
+*.so
+*.dylib
+
+# Carpeta de publicación
+publish/
