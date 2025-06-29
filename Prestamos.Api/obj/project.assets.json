@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Prestamos.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Prestamos.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Prestamos.Models.dll": {}
+        }
+      },
+      "Prestamos.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Prestamos.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Prestamos.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Prestamos.Services.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Prestamos.Models/1.0.0": {
+      "type": "project",
+      "path": "../Prestamos.Models/Prestamos.Models.csproj",
+      "msbuildProject": "../Prestamos.Models/Prestamos.Models.csproj"
+    },
+    "Prestamos.Services/1.0.0": {
+      "type": "project",
+      "path": "../Prestamos.Services/Prestamos.Services.csproj",
+      "msbuildProject": "../Prestamos.Services/Prestamos.Services.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Prestamos.Models >= 1.0.0",
+      "Prestamos.Services >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Glorupc\\.nuget\\packages\\": {},
@@ -38,7 +76,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Models\\Prestamos.Models.csproj": {
+              "projectPath": "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Models\\Prestamos.Models.csproj"
+            },
+            "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Services\\Prestamos.Services.csproj": {
+              "projectPath": "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Services\\Prestamos.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

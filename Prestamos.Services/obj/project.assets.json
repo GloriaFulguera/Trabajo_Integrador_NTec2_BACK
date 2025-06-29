@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Prestamos.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Prestamos.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Prestamos.Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Prestamos.Models/1.0.0": {
+      "type": "project",
+      "path": "../Prestamos.Models/Prestamos.Models.csproj",
+      "msbuildProject": "../Prestamos.Models/Prestamos.Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Prestamos.Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Glorupc\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Models\\Prestamos.Models.csproj": {
+              "projectPath": "C:\\Users\\Glorupc\\source\\repos\\Trabajo Integrador BACK\\Prestamos.Models\\Prestamos.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
