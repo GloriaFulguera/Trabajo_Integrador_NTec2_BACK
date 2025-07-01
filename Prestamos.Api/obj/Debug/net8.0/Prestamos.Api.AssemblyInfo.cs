@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Prestamos.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+896147d7a3b2ace00fd941bc090ed5460f3e77cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63e417cca70c643850aca7cf7deab2f6fe7001f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Prestamos.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Prestamos.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
