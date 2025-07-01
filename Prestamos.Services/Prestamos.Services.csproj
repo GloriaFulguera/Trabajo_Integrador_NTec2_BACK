@@ -10,4 +10,9 @@
     <ProjectReference Include="..\Prestamos.Models\Prestamos.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
