@@ -27,5 +27,48 @@ namespace Prestamos.Services
                 $"VALUES ({usuario.Dni},'{usuario.Nombre}','{usuario.Apellido}','{usuario.Clave}','2','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'A')";
             return SqliteHandler.Exec(query);
         }
+
+        public async Task<LoginResultDTO> Login(LoginDTO usuario)
+        {
+            string query = $"SELECT count(*) as Existe from usuarios " +
+                $"WHERE dni={usuario.Dni} AND clave='{usuario.Clave}'";
+            string result=SqliteHandler.GetScalar(query);
+
+            LoginResultDTO loginResult=new LoginResultDTO();
+            if (result == "0")
+            {
+                loginResult.Result=false;
+                loginResult.Mensaje = "Credenciales incorrectas o usuario inexistente.";
+            }
+            else
+            {
+                query = $"SELECT estado from usuarios " +
+                    $"WHERE dni={usuario.Dni} AND clave='{usuario.Clave}'";
+                result = SqliteHandler.GetScalar(query);
+
+                if (result != "A")
+                {
+                    loginResult.Result = false;
+                    loginResult.Mensaje = "El usuario esta inactivo.";
+                }
+                else
+                {
+                    query = $"UPDATE usuarios SET fecha_ultLogin='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}' " +
+                        $"WHERE dni={usuario.Dni}";
+                    bool updateResult = SqliteHandler.Exec(query);
+                    if(updateResult)
+                    {
+                        loginResult.Result = true;
+                        loginResult.Mensaje = "Usuario validado correctamente.";
+                    }
+                    else
+                    {
+                        loginResult.Result = false;
+                        loginResult.Mensaje = "Ocurrio un problema, comuniquese con el administrador.";
+                    }
+                }
+            }
+            return loginResult;
+        }
     }
 }

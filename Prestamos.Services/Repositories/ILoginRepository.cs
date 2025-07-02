@@ -12,5 +12,6 @@ namespace Prestamos.Services.Repositories
     {
         public Task<List<Usuario>> GetUsuarios();
         public Task<bool> CreateUsuario(RegisterDTO usuario);
+        public Task<LoginResultDTO> Login(LoginDTO usuario);
     }
 }

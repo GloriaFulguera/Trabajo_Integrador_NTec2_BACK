@@ -21,10 +21,15 @@ namespace Prestamos.Api.Controllers
         {
             return await Task.Run(() => _loginService.GetUsuarios());
         }
-        [HttpPost]
+        [HttpPost("CreateUsuario")]
         public async Task<bool> CreateUsuario(RegisterDTO usuario)
         {
             return await Task.Run(() => _loginService.CreateUsuario(usuario));
+        }
+        [HttpPost("Login")]
+        public async Task<LoginResultDTO> Login(LoginDTO usuario)
+        {
+            return await Task.Run(()=>_loginService.Login(usuario));
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Prestamos.Models.DTO
 {
-    public class LoginResultDTO
+    public class LoginDTO
     {
-        public bool Result { get; set; }
-        public string Mensaje { get; set; }
+        public int Dni { get; set; }
+        public string Clave { get; set; }
     }
 }
