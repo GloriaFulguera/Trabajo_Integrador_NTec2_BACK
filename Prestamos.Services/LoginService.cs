@@ -24,7 +24,7 @@ namespace Prestamos.Services
         public async Task<bool> CreateUsuario(RegisterDTO usuario)
         {
             string query = $"INSERT INTO usuarios(dni,nombre,apellido,clave,rol,fecha_alta,fecha_ultLogin,estado)" +
-                $"VALUES ({usuario.Dni},'{usuario.Nombre}','{usuario.Apellido}','{usuario.Clave}','2','{DateTime.Now.ToString()}',null,A)";
+                $"VALUES ({usuario.Dni},'{usuario.Nombre}','{usuario.Apellido}','{usuario.Clave}','2','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'A')";
             return SqliteHandler.Exec(query);
         }
     }

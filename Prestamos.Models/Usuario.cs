@@ -13,8 +13,8 @@ namespace Prestamos.Models
         public string Apellido { get; set; }
         public string Clave { get; set; }
         public string Rol { get; set; }
-        public string Fe_alta { get; set; }
-        public string Fe_ultimoLogin { get; set; }
+        public string Fecha_alta { get; set; }
+        public string Fecha_ultLogin { get; set; }
         public string Estado { get; set; }
     }
 }
