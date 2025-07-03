@@ -19,5 +19,7 @@ namespace Prestamos.Models
         public string Fecha_alta { get; set; }
         public string Fecha_mod { get; set; }
         public string Estado { get; set; }
+        public string Riesgo { get; set; }
+        public string Motivo_rechazo { get; set; }
     }
 }
