@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Prestamos.Models;
 using Prestamos.Models.DTO;
 using Prestamos.Services.Repositories;
 
@@ -19,6 +20,11 @@ namespace Prestamos.Api.Controllers
         public async Task<bool> CreateSolicitud(SolicitudDTO solicitud)
         {
             return await Task.Run(()=>_solicitudService.CreateSolicitud(solicitud));
+        }
+        [HttpGet("GetSolicitudes")]
+        public async Task<List<Solicitud>> GetSolicitudes(int? dni,string? estado)
+        {
+            return await Task.Run(()=>_solicitudService.GetSolicitudes(dni,estado));
         }
     }
 }

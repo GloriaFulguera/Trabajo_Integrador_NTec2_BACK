@@ -1,4 +1,5 @@
-﻿using Prestamos.Models.DTO;
+﻿using Prestamos.Models;
+using Prestamos.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Prestamos.Services.Repositories
     public interface ISolicitudRepository
     {
         public Task<bool> CreateSolicitud(SolicitudDTO solicitud);
+        public Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado);
     }
 }
