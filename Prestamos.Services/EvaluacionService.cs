@@ -14,7 +14,7 @@ namespace Prestamos.Services
     {
         public void EvaluarSolicitud(int dni)
         {
-            string query = $"SELECT * FROM solicitudes WHERE usuario_dni = {dni} ORDER BY id DESC LIMIT 1";//podria cambiarlo por el id que se genere?
+            string query = $"SELECT * FROM solicitudes WHERE usuario_dni = {dni} ORDER BY id DESC LIMIT 1";//podria cambiarlo por el id que se genera?
             string json=SqliteHandler.GetJson(query);
 
             Solicitud response=JsonConvert.DeserializeObject<List<Solicitud>>(json).FirstOrDefault();

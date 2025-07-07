@@ -19,6 +19,15 @@ namespace Prestamos.Api.Controllers
         [HttpPost("CreateSolicitud")]
         public async Task<bool> CreateSolicitud(SolicitudDTO solicitud)
         {
+            if (string.IsNullOrWhiteSpace(solicitud.Tipo_empleo)||string.IsNullOrWhiteSpace(solicitud.Motivo)||
+                string.IsNullOrWhiteSpace(solicitud.Ingresos)||string.IsNullOrWhiteSpace(solicitud.Monto))
+            {
+                return false;
+            }
+            if (solicitud.Cuotas < 1 || solicitud.Dni < 1 || solicitud.Edad < 18)
+            {
+                return false;
+            }
             return await Task.Run(()=>_solicitudService.CreateSolicitud(solicitud));
         }
         [HttpGet("GetSolicitudes")]
