@@ -8,6 +8,6 @@ namespace Prestamos.Services.Repositories
 {
     public interface IEvaluacionRepository
     {
-        public void EvaluarSolicitud(int dni);
+        public Task<bool> EvaluarSolicitud(int dni);
     }
 }

@@ -19,7 +19,7 @@ namespace Prestamos.Services
             string query = $"INSERT INTO solicitudes(id,usuario_dni,usuario_edad,ingresos,tipo_empleo,monto,cuotas,motivo,fecha_alta,fecha_mod,estado,riesgo,motivo_rechazo) " +
                 $"VALUES (null,{solicitud.Dni},'{solicitud.Edad}','{solicitud.Ingresos}','{solicitud.Tipo_empleo}','{solicitud.Monto}'," +
                 $"{solicitud.Cuotas},'{solicitud.Motivo}','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'pendiente',null,null)";
-            //TO DO: Validar ingresos
+
             if (SqliteHandler.Exec(query))
             {
                 evaluacionService.EvaluarSolicitud(solicitud.Dni);
