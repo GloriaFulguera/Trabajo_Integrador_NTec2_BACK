@@ -29,12 +29,16 @@ namespace Prestamos.Services
                 return false;
         }
 
-        public async Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado)
+        public async Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado, int? id)
         {
             string query;
             if (dni.HasValue)
             {
                 query = "SELECT * FROM solicitudes WHERE usuario_dni=" + dni;
+            }
+            else if (id.HasValue)
+            {
+                query = "SELECT * FROM solicitudes WHERE id=" + id;
             }
             else if (!string.IsNullOrEmpty(estado))
             {

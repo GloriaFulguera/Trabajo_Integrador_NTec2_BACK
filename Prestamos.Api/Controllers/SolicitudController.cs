@@ -31,9 +31,9 @@ namespace Prestamos.Api.Controllers
             return await Task.Run(()=>_solicitudService.CreateSolicitud(solicitud));
         }
         [HttpGet("GetSolicitudes")]
-        public async Task<List<Solicitud>> GetSolicitudes(int? dni,string? estado)
+        public async Task<List<Solicitud>> GetSolicitudes(int? dni,string? estado,int? id)
         {
-            return await Task.Run(()=>_solicitudService.GetSolicitudes(dni,estado));
+            return await Task.Run(()=>_solicitudService.GetSolicitudes(dni,estado,id));
         }
         [HttpPut("EditSolicitud")]
         public async Task<bool> EditSolicitud(Solicitud solicitud)

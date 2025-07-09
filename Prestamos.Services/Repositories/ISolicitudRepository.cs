@@ -11,7 +11,7 @@ namespace Prestamos.Services.Repositories
     public interface ISolicitudRepository
     {
         public Task<bool> CreateSolicitud(SolicitudDTO solicitud);
-        public Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado);
+        public Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado,int? id);
         public Task<bool> EditSolicitud(Solicitud solicitud);
         public Task<bool> DeleteSolicitud(int id);
     }
