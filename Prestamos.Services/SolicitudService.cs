@@ -50,5 +50,18 @@ namespace Prestamos.Services
             List<Solicitud> ret=JsonConvert.DeserializeObject<List<Solicitud>>(json);
             return ret;
         }
+
+        public async Task<bool> EditSolicitud(SolicitudDTO solicitud)
+        {
+            string query = $"UPDATE solicitudes SET usuario_edad={solicitud.Edad},ingresos='{solicitud.Ingresos}',tipo_empleo='{solicitud.Tipo_empleo}'" +
+                $"monto='{solicitud.Monto}',fecha_mod='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',cuotas='{solicitud.Cuotas}',motivo='{solicitud.Motivo}'";
+            return SqliteHandler.Exec(query);
+        }
+
+        public async Task<bool> DeleteSolicitud(int id)
+        {
+            string query = "DELETE from solicitudes WHERE id=" + id;
+            return SqliteHandler.Exec(query);
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Prestamos.Services.Repositories
 {
     public interface ILoginRepository
     {
-        public Task<List<Usuario>> GetUsuarios();
+        public Task<List<Usuario>> GetUsuarios(int? dni);
         public Task<bool> CreateUsuario(RegisterDTO usuario);
         public Task<LoginResultDTO> Login(LoginDTO usuario);
     }

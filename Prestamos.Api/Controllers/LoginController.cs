@@ -17,9 +17,9 @@ namespace Prestamos.Api.Controllers
             _loginService = loginService;
         }
         [HttpGet("GetUsuarios")]
-        public async Task<List<Usuario>> GetUsuarios()
+        public async Task<List<Usuario>> GetUsuarios(int? dni)
         {
-            return await Task.Run(() => _loginService.GetUsuarios());
+            return await Task.Run(() => _loginService.GetUsuarios(dni));
         }
         [HttpPost("CreateUsuario")]
         public async Task<bool> CreateUsuario(RegisterDTO usuario)

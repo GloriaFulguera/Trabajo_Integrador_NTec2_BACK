@@ -13,9 +13,11 @@ namespace Prestamos.Services
 {
     public class LoginService : ILoginRepository
     {
-        public async Task<List<Usuario>> GetUsuarios()
+        public async Task<List<Usuario>> GetUsuarios(int? dni)
         {
             string query = "SELECT * FROM usuarios";
+            if (dni.HasValue)
+                query = "SELECT * FROM usuarios WHERE dni=" + dni;
             string json = SqliteHandler.GetJson(query);
 
             List<Usuario> usuarios=JsonConvert.DeserializeObject<List<Usuario>>(json);
