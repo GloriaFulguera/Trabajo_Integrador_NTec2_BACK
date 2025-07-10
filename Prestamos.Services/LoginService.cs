@@ -25,8 +25,9 @@ namespace Prestamos.Services
         }
         public async Task<bool> CreateUsuario(RegisterDTO usuario)
         {
+            //roles: 1. Usuario normal     2. Empleado bancario
             string query = $"INSERT INTO usuarios(dni,nombre,apellido,clave,rol,fecha_alta,fecha_ultLogin,estado)" +
-                $"VALUES ({usuario.Dni},'{usuario.Nombre}','{usuario.Apellido}','{usuario.Clave}','2','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'A')";
+                $"VALUES ({usuario.Dni},'{usuario.Nombre}','{usuario.Apellido}','{usuario.Clave}','1','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'I')";
             return SqliteHandler.Exec(query);
         }
 
