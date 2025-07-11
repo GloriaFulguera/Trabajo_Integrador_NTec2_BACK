@@ -40,6 +40,7 @@ namespace Prestamos.Services
             LoginResultDTO loginResult=new LoginResultDTO();
             if (result == "0")
             {
+                loginResult.Rol = null;
                 loginResult.Result=false;
                 loginResult.Mensaje = "Credenciales incorrectas o usuario inexistente.";
             }
@@ -48,6 +49,10 @@ namespace Prestamos.Services
                 query = $"SELECT estado from usuarios " +
                     $"WHERE dni={usuario.Dni} AND clave='{usuario.Clave}'";
                 result = SqliteHandler.GetScalar(query);
+
+                query = $"SELECT rol from usuarios " +
+                    $"WHERE dni={usuario.Dni} AND clave='{usuario.Clave}'";
+                loginResult.Rol = SqliteHandler.GetScalar(query) == "2" ? "admin" : "regular";
 
                 if (result != "A")
                 {

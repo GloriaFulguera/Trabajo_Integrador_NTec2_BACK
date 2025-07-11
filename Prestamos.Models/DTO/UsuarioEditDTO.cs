@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Prestamos.Models.DTO
 {
-    public class LoginResultDTO
+    public class UsuarioEditDTO
     {
-        public bool Result { get; set; }
-        public string Mensaje { get; set; }
+        public int Dni { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Rol { get; set; }
+        public string Estado { get; set; }
     }
 }
