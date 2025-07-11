@@ -1,4 +1,5 @@
-﻿using Prestamos.Models.DTO;
+﻿using Prestamos.Models;
+using Prestamos.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Prestamos.Services.Repositories
     public interface IUsuarioRepository
     {
         public Task<List<UsuarioDTO>> GetUsuarios(int dni);
-        public Task<bool> EditUsuario(UsuarioEditDTO usuario);
+        public Task<bool> EditUsuario(Usuario usuario);
         public Task<bool> DeleteUsuario(int dni);
     }
 }

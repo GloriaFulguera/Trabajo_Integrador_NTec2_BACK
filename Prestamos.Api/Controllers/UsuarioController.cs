@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Prestamos.Models;
 using Prestamos.Models.DTO;
 using Prestamos.Services.Repositories;
 
@@ -20,7 +21,7 @@ namespace Prestamos.Api.Controllers
             return await Task.Run(() => _usuarioService.GetUsuarios(dni));
         }
         [HttpPut("EditUsuario")]
-        public async Task<bool> EditUsuario(UsuarioEditDTO usuario)
+        public async Task<bool> EditUsuario(Usuario usuario)
         {
             return await Task.Run(()=>_usuarioService.EditUsuario(usuario));
         }

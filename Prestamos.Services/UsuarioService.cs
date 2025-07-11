@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Prestamos.Models;
 using Prestamos.Models.DTO;
 using Prestamos.Services.Repositories;
 using Stock.Services.Handlers;
@@ -23,7 +24,7 @@ namespace Prestamos.Services
             return usuarios;
         }
 
-        public async Task<bool> EditUsuario(UsuarioEditDTO usuario)
+        public async Task<bool> EditUsuario(Usuario usuario)
         {
             string query = $"UPDATE usuarios SET nombre='{usuario.Nombre}',apellido='{usuario.Apellido}'," +
                 $"rol='{usuario.Rol}',estado='{usuario.Estado}' WHERE dni={usuario.Dni}";
