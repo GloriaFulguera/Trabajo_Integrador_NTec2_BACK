@@ -40,10 +40,6 @@ namespace Prestamos.Api.Controllers
         {
             return await Task.Run(() => _solicitudService.EditSolicitud(solicitud));
         }
-        [HttpDelete("DeleteSolicitud")]
-        public async Task<bool> DeleteSolicitud(int id)
-        {
-            return await Task.Run(() => _solicitudService.DeleteSolicitud(id));
-        }
+
     }
 }

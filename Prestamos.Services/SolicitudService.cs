@@ -63,10 +63,5 @@ namespace Prestamos.Services
             return SqliteHandler.Exec(query);
         }
 
-        public async Task<bool> DeleteSolicitud(int id)
-        {
-            string query = "DELETE from solicitudes WHERE id=" + id;
-            return SqliteHandler.Exec(query);
-        }
     }
 }
