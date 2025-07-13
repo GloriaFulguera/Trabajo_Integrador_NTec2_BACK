@@ -32,9 +32,13 @@ namespace Prestamos.Services
         public async Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado, int? id)
         {
             string query;
-            if (dni.HasValue)
+            if (dni.HasValue&&!string.IsNullOrEmpty(estado))
             {
-                query = "SELECT * FROM solicitudes WHERE usuario_dni=" + dni;
+                query = $"SELECT * FROM solicitudes WHERE usuario_dni={dni} AND estado='{estado}'";
+            }
+            else if (dni.HasValue)
+            {
+                query = $"SELECT * FROM solicitudes WHERE usuario_dni={dni}";
             }
             else if (id.HasValue)
             {
@@ -58,7 +62,7 @@ namespace Prestamos.Services
         public async Task<bool> EditSolicitud(SolicitudEditDTO solicitud)
         {
             string query = $"UPDATE solicitudes SET fecha_mod='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',estado='{solicitud.Estado}',riesgo='medio', " +
-                $"motivo_rechazo_aprobacion='{solicitud.Motivo_rechazo}' " +
+                $"motivo_rechazo_aprobacion='{solicitud.Motivo_rechazo_aprobacion}' " +
                 $"WHERE id={solicitud.Id}";
             return SqliteHandler.Exec(query);
         }

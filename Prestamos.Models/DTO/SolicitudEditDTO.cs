@@ -10,6 +10,6 @@ namespace Prestamos.Models.DTO
     {
         public int Id { get; set; }
         public string Estado { get; set; }
-        public string Motivo_rechazo { get; set; }
+        public string Motivo_rechazo_aprobacion { get; set; }
     }
 }
