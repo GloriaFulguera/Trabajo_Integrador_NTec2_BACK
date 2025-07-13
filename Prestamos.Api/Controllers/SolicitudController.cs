@@ -36,7 +36,7 @@ namespace Prestamos.Api.Controllers
             return await Task.Run(()=>_solicitudService.GetSolicitudes(dni,estado,id));
         }
         [HttpPut("EditSolicitud")]
-        public async Task<bool> EditSolicitud(Solicitud solicitud)
+        public async Task<bool> EditSolicitud(SolicitudEditDTO solicitud)
         {
             return await Task.Run(() => _solicitudService.EditSolicitud(solicitud));
         }

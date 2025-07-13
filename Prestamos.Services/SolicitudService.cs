@@ -16,7 +16,7 @@ namespace Prestamos.Services
         EvaluacionService evaluacionService=new EvaluacionService();
         public async Task<bool> CreateSolicitud(SolicitudDTO solicitud)
         {
-            string query = $"INSERT INTO solicitudes(id,usuario_dni,usuario_edad,ingresos,tipo_empleo,monto,cuotas,motivo,fecha_alta,fecha_mod,estado,riesgo,motivo_rechazo) " +
+            string query = $"INSERT INTO solicitudes(id,usuario_dni,usuario_edad,ingresos,tipo_empleo,monto,cuotas,motivo,fecha_alta,fecha_mod,estado,riesgo,motivo_rechazo_aprobacion) " +
                 $"VALUES (null,{solicitud.Dni},'{solicitud.Edad}','{solicitud.Ingresos}','{solicitud.Tipo_empleo}','{solicitud.Monto}'," +
                 $"{solicitud.Cuotas},'{solicitud.Motivo}','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',null,'pendiente',null,null)";
 
@@ -55,10 +55,10 @@ namespace Prestamos.Services
             return ret;
         }
 
-        public async Task<bool> EditSolicitud(Solicitud solicitud)
+        public async Task<bool> EditSolicitud(SolicitudEditDTO solicitud)
         {
-            string query = $"UPDATE solicitudes SET usuario_edad={solicitud.Usuario_edad},ingresos='{solicitud.Ingresos}',tipo_empleo='{solicitud.Tipo_empleo}'," +
-                $"monto='{solicitud.Monto}',fecha_mod='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',cuotas='{solicitud.Cuotas}',motivo='{solicitud.Motivo}' " +
+            string query = $"UPDATE solicitudes SET fecha_mod='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',estado='{solicitud.Estado}',riesgo='medio', " +
+                $"motivo_rechazo_aprobacion='{solicitud.Motivo_rechazo}' " +
                 $"WHERE id={solicitud.Id}";
             return SqliteHandler.Exec(query);
         }
