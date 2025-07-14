@@ -13,7 +13,7 @@ namespace Prestamos.Services
 {
     public class SolicitudService : ISolicitudRepository
     {
-        EvaluacionService evaluacionService=new EvaluacionService();
+        EvaluacionService evaluacionService = new EvaluacionService();
         public async Task<bool> CreateSolicitud(SolicitudDTO solicitud)
         {
             string query = $"INSERT INTO solicitudes(id,usuario_dni,usuario_edad,ingresos,tipo_empleo,monto,cuotas,motivo,fecha_alta,fecha_mod,estado,riesgo,motivo_rechazo_aprobacion) " +
@@ -32,7 +32,7 @@ namespace Prestamos.Services
         public async Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado, int? id)
         {
             string query;
-            if (dni.HasValue&&!string.IsNullOrEmpty(estado))
+            if (dni.HasValue && !string.IsNullOrEmpty(estado))
             {
                 query = $"SELECT * FROM solicitudes WHERE usuario_dni={dni} AND estado='{estado}'";
             }
@@ -52,10 +52,28 @@ namespace Prestamos.Services
             {
                 query = "SELECT * FROM solicitudes";
             }
-            
-            string json=SqliteHandler.GetJson(query);
 
-            List<Solicitud> ret=JsonConvert.DeserializeObject<List<Solicitud>>(json);
+            string json = SqliteHandler.GetJson(query);
+
+            List<Solicitud> ret = JsonConvert.DeserializeObject<List<Solicitud>>(json);
+            return ret;
+        }
+
+        public async Task<List<Solicitud>> GetSolicitudesAdmin(int dni, string? estado)
+        {
+            string query;
+            if (!string.IsNullOrEmpty(estado))
+            {
+                query = $"SELECT * FROM solicitudes WHERE usuario_dni!={dni} AND estado='{estado}'";
+            }
+            else
+            {
+                query = $"SELECT * FROM solicitudes WHERE usuario_dni!={dni}";
+            }
+
+            string json = SqliteHandler.GetJson(query);
+
+            List<Solicitud> ret = JsonConvert.DeserializeObject<List<Solicitud>>(json);
             return ret;
         }
 

@@ -12,6 +12,7 @@ namespace Prestamos.Services.Repositories
     {
         public Task<bool> CreateSolicitud(SolicitudDTO solicitud);
         public Task<List<Solicitud>> GetSolicitudes(int? dni, string? estado,int? id);
+        public Task<List<Solicitud>> GetSolicitudesAdmin(int dni, string? estado);
         public Task<bool> EditSolicitud(SolicitudEditDTO solicitud);
     }
 }
