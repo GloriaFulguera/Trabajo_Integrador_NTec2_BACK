@@ -24,7 +24,7 @@ namespace Prestamos.Api.Controllers
             {
                 return false;
             }
-            if (solicitud.Cuotas < 1 || solicitud.Dni < 1 || solicitud.Edad < 18)
+            if (solicitud.Cuotas < 1 || solicitud.Dni < 1 || solicitud.Edad < 18 || Convert.ToDecimal(solicitud.Monto)<100000)
             {
                 return false;
             }

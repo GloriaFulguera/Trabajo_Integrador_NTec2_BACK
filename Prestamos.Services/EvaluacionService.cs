@@ -63,13 +63,13 @@ namespace Prestamos.Services
 
             string estado = "aprobado";
             string riesgo = "bajo";
-            string motivoRechazo = "RESPUESTA AUTOMATICA: No se identificó riesgo.";
+            string motivoRechazo = "'RESPUESTA AUTOMATICA: No se identificó riesgo.'";
 
             if (riesgos.Contains("ALTO"))
             {
                 estado = "rechazado";
                 riesgo = "alto";
-                motivoRechazo = "RESPUESTA AUTOMATICA: Riesgo alto detectado";
+                motivoRechazo = "'RESPUESTA AUTOMATICA: Riesgo alto detectado.'";
             }
             else if (riesgos.Contains("MEDIO"))
             {
@@ -79,7 +79,7 @@ namespace Prestamos.Services
             }
 
             query = $"UPDATE solicitudes " +
-                $"SET estado='{estado}', riesgo='{riesgo}', motivo_rechazo_aprobacion='{motivoRechazo}' " +
+                $"SET estado='{estado}', riesgo='{riesgo}', motivo_rechazo_aprobacion={motivoRechazo} " +
                 $"WHERE id={response.Id}";
 
             return SqliteHandler.Exec(query);
